@@ -37,7 +37,7 @@ NeithHunter1/
 ## Installation
 
 ```bash
-git clone https://github.com/yourname/NeithHunter.git
+git clone https://github.com/Nexian2/NeithReconTools
 cd NeithHunter
 pip install -r requirements.txt
 
