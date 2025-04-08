@@ -2,7 +2,7 @@ from modules.owasp_scanner import scan_owasp_top_10
 from modules.malware_scanner import scan_url_malware
 from modules.vuln_scanner import scan_basic_vulns
 from utils.report_writer import save_pdf_report
-from ai.ai_suggestion import ai_suggestion  # Benerin importnya
+from ai.ai_suggestion import ai_suggestion
 
 def show_ascii_art():
     ascii = """
@@ -34,9 +34,12 @@ def main():
         "Common Vulns": vuln_results,
     }
 
-    # AI Suggestion Result
+    # Combine semua hasil buat dianalisis AI
+    combined_vulns = []
+    for group in all_results.values():
+        combined_vulns.extend(group)
+
     print("[+] Menganalisis hasil dengan AI Suggestion...")
-    combined_vulns = owasp_results + malware_results + vuln_results
     ai_results = ai_suggestion(combined_vulns)
 
     print("\n[AI Suggestion Result]")
@@ -44,7 +47,7 @@ def main():
         print("- " + suggestion)
 
     save_pdf_report(target, all_results)
-    print(f"[+] Scan completed. Report saved to scan_report.pdf")
+    print("[+] Scan completed. Report saved to scan_report.pdf")
 
 if __name__ == "__main__":
     main()
