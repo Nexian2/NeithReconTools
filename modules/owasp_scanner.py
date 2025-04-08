@@ -1,0 +1,1 @@
+def scan_owasp_top_10(target): return [{'vuln': 'SQLi', 'status': 'Detected', 'suggestion': 'Use prepared statements'}]

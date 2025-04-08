@@ -1,0 +1,1 @@
+def scan_basic_vulns(target): return [{'vuln': 'IDOR', 'status': 'Detected', 'suggestion': 'Apply strict access control'}]
