@@ -1,0 +1,4 @@
+requests
+reportlab
+beautifulsoup4
+colorama
